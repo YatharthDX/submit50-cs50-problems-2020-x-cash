@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+int main(void)
+{
+    float n;
+
+    do
+    {
+        n = get_float("Change owed: "); //Getting the the amount of change
+    }
+    while ( n < 0.009 ); //Ensuring that the change is bigger than 1 cent
+    n = round(n * 100); // converting dollar in cents
+    int a0 = n / 25;
+    printf("No of coins of 25 cents %i\n", a0 );
+    int a1 = n - (a0*25);
+    int b0 = a1 / 10;
+    printf("NO of coins of 10 cents %i\n", b0);
+    int b1;
+    b1 = a1 - ( b0 * 10 );
+     int c0 = b1 / 5;
+    printf("No of coins of 5 cents %i\n", c0);
+    int c2 = b1-(c0*5);
+    int d0 = c2 / 1;
+    printf("No of coins of 1 cent %i\n", d0);   
+    int x = a0 + b0 + c0 + d0;
+    printf("Minimum number of coins requires: %i\n", x );
+}
